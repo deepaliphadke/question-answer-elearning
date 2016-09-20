@@ -1,9 +1,15 @@
 (function($) {
+    
+    var showTab = function(e) {
+        alert($(this).html());
+    }
+    
     var question = function(qid, ans, feedback_right, feedback_wrong){
         this.qid = qid;
         this.right_answer = ans;
         this.feedback_right = feedback_right;
         this.feedback_wrong = feedback_wrong;
+        $(".pager").append("<li><a class='btn btn-pager'>"+this.qid+"</a></li>");
         this.checkanswer = (function(qid, right_answer, feedback_right, feedback_wrong) {
             return function (e) {
                 var correct_ans = ($("#q-"+qid+" input[type=radio]:checked").val());
@@ -28,5 +34,7 @@
 
     $(".wrong").hide();
     $(".right").hide();
+    $(".btn-pager").on("click", showTab);
+    
 
 }(jQuery))
