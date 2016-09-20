@@ -36,6 +36,13 @@
             $("#q-"+tab_id).fadeIn();
         });
     }
+    
+    var activateSelect = function(e) {
+        var par = $(this).parent().parent();
+        par.children("a.btn").removeClass("disabled");
+    }
+    
+    $(".radio label").on("click", activateSelect);
 
     var q1 = new question(1, 3, "You got that right", "Neah doesn't work");
     var q2 = new question(2, 2, "You got that", "Neah");
